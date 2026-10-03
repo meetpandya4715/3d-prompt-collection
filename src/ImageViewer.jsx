@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import Modal from "./Modal";
 import Preview from "./Preview";
+import imageSizes from "./image-sizes.json";
 import { samples } from "./data";
 export default function ImageViewer({
   prompt,
@@ -18,7 +19,26 @@ export default function ImageViewer({
 }) {
   const [sample, setSample] = useState(initialSample);
   const [fullscreen, setFullscreen] = useState(false);
+  const [sizeMode, setSizeMode] = useState("actual");
+  const [pixelRatio, setPixelRatio] = useState(() => window.devicePixelRatio || 1);
+  const [sheetWidth, sheetHeight] = imageSizes[prompt.number];
   const wrapper = useRef(null);
+  useEffect(() => {
+    let media;
+    function updatePixelRatio() {
+      media?.removeEventListener("change", updatePixelRatio);
+      const ratio = window.devicePixelRatio || 1;
+      setPixelRatio(ratio);
+      media = window.matchMedia(`(resolution: ${ratio}dppx)`);
+      media.addEventListener("change", updatePixelRatio);
+    }
+    updatePixelRatio();
+    window.addEventListener("resize", updatePixelRatio);
+    return () => {
+      window.removeEventListener("resize", updatePixelRatio);
+      media?.removeEventListener("change", updatePixelRatio);
+    };
+  }, []);
   useEffect(() => {
     const key = (e) => {
       if (e.key === "ArrowLeft") {
@@ -103,7 +123,22 @@ export default function ImageViewer({
             </button>
           </div>
         </header>
-        <div className="viewer-stage">
+        <div className="viewer-sizing" role="group" aria-label="Image size">
+          <button aria-pressed={sizeMode === "actual"} onClick={() => setSizeMode("actual")}>
+            Actual size
+          </button>
+          <button aria-pressed={sizeMode === "fit"} onClick={() => setSizeMode("fit")}>
+            Fit to screen
+          </button>
+        </div>
+        <div
+          className="viewer-stage"
+          data-size={sizeMode}
+          style={{
+            "--sample-width": `${sheetWidth / 2 / pixelRatio}px`,
+            "--sample-height": `${sheetHeight / 2 / pixelRatio}px`,
+          }}
+        >
           <button
             className="slide-arrow previous"
             onClick={() => setSample((s) => (s + 3) % 4)}

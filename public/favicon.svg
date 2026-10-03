@@ -1,8 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <rect width="48" height="48" rx="10" fill="#111318" />
-  <g fill="none" stroke="#b7a0ff" stroke-width="2">
-    <circle cx="24" cy="24" r="17" />
-    <ellipse cx="24" cy="24" rx="8" ry="17" />
-    <path d="M7 24h34M10 15h28M10 33h28" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <title>Meet Pandya — optical lens</title>
+  <circle cx="16" cy="16" r="16" fill="#F5F1EB"/>
+  <g transform="rotate(-30 16 16)">
+    <path d="M16 5C9.4 5 5 9.9 5 16s4.4 11 11 11" stroke="#242825" stroke-width="2.5"/>
+    <path d="M16 5c6.6 0 11 4.9 11 11s-4.4 11-11 11" stroke="#A34125" stroke-width="2.5"/>
+    <path d="M16 5c-7 6-7 16 0 22 7-6 7-16 0-22Z" fill="#A34125"/>
   </g>
 </svg>

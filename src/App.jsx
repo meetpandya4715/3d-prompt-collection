@@ -3,6 +3,7 @@ import { ArrowUpRight, Menu, X, Search } from "lucide-react";
 import Sidebar from "./Sidebar";
 import PromptCard from "./PromptCard";
 import JumpDialog from "./JumpDialog";
+import ThemeToggle from "./ThemeToggle";
 import { prompts, sections, getPromptFromHash } from "./data";
 const PromptReader = lazy(() => import("./PromptReader"));
 const ImageViewer = lazy(() => import("./ImageViewer"));
@@ -83,12 +84,20 @@ export default function App() {
             <Menu />
           </button>
           <div>
+            {import.meta.env.VITE_COLLECTIONS_URL && (
+              <a className="collections-link" href={import.meta.env.VITE_COLLECTIONS_URL}>
+                ← All collections
+              </a>
+            )}
             <h1>Explore the possibilities.</h1>
             <p>A visual companion to the 3D Prompt Collection.</p>
           </div>
-          <button className="button jump-button" onClick={() => setJump(true)}>
-            Jump to prompt <ArrowUpRight size={18} />
-          </button>
+          <div className="header-actions">
+            <button className="button jump-button" onClick={() => setJump(true)}>
+              Jump to prompt <ArrowUpRight size={18} />
+            </button>
+            <ThemeToggle />
+          </div>
         </header>
         {query && (
           <div className="search-summary">
@@ -121,7 +130,6 @@ export default function App() {
                     key={p.id}
                     prompt={p}
                     onOpen={openPrompt}
-                    onImage={(prompt, sample) => setViewer({ prompt, sample })}
                   />
                 ))}
               </div>
