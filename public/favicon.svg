@@ -1,8 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-  <rect width="48" height="48" rx="10" fill="#111318" />
-  <g fill="none" stroke="#b7a0ff" stroke-width="2">
-    <circle cx="24" cy="24" r="17" />
-    <ellipse cx="24" cy="24" rx="8" ry="17" />
-    <path d="M7 24h34M10 15h28M10 33h28" />
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <title>Meet Pandya</title>
+  <rect width="32" height="32" rx="7" fill="#A34125"/>
+  <path d="M7 24V8h4l5 8 5-8h4v16h-4V15l-5 7-5-7v9H7Z" fill="#FFF8EF"/>
 </svg>
