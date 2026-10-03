@@ -2,6 +2,28 @@
 
 A presentation-order collection of prompts. Each entry includes only the prompt title and the prompt text. Prompts are collapsed so the page stays browsable on GitHub; expand any title to copy the prompt.
 
+## Visual dashboard
+
+Explore [Worlds — Prompt Atlas](https://worlds-prompt-atlas.meetpandya.chatgpt.site), the public dashboard for this collection. Each of the 63 prompts has four ImageGen conceptual previews. Browse by section, search the collection, jump to any prompt, read and copy its complete text, or open a sample image full screen.
+
+### Run locally
+
+Use Node.js 22.12 or later:
+
+```sh
+npm ci
+npm run dev
+```
+
+Create and preview the production build:
+
+```sh
+npm run build
+npm run preview
+```
+
+The dashboard reads the original prompt content directly from `prompts.json`. Preview assets are stored in `public/previews/`; each WebP sheet contains four distinct compositions, and `src/image-sizes.json` records the native dimensions used to display each frame. `.openai/hosting.json` identifies the published Sites project.
+
 ## Sections
 
 | Section | Prompts | Count |

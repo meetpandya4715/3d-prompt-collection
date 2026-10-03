@@ -1,0 +1,143 @@
+import source from "../prompts.json";
+export const sections = [
+  {
+    id: "worlds",
+    label: "Big 3D Worlds",
+    nav: "Big 3D Worlds",
+    start: 1,
+    end: 30,
+    icon: "Landmark",
+  },
+  {
+    id: "playable",
+    label: "Playable and Game-Like Scenes",
+    nav: "Playable scenes",
+    start: 31,
+    end: 42,
+    icon: "Gamepad2",
+  },
+  {
+    id: "art",
+    label: "Living Art Worlds",
+    nav: "Living art worlds",
+    start: 43,
+    end: 49,
+    icon: "Leaf",
+  },
+  {
+    id: "vantages",
+    label: "Impossible Vantages",
+    nav: "Impossible vantages",
+    start: 50,
+    end: 52,
+    icon: "Mountain",
+  },
+  {
+    id: "nature",
+    label: "Natural Spectacles",
+    nav: "Natural spectacles",
+    start: 53,
+    end: 59,
+    icon: "Waves",
+  },
+  {
+    id: "cosmic",
+    label: "Elemental and Cosmic Finale",
+    nav: "Elemental & cosmic",
+    start: 60,
+    end: 63,
+    icon: "Orbit",
+  },
+];
+const titles = [
+  "Manhattan, alive",
+  "Ancient Rome",
+  "Seven Wonders",
+  "Thames, London",
+  "Paris, from the Eiffel Tower",
+  "Golden Gate Bridge",
+  "Istanbul & the Golden Horn",
+  "Harbin, city of ice",
+  "First snow in the Forbidden City",
+  "Pileh Lagoon",
+  "Atlantis, still alive",
+  "The Emerald City",
+  "The lost dinosaur valley",
+  "The chocolate factory garden",
+  "The Grand Budapest",
+  "Ancient Egypt, alive",
+  "Giza at its golden age",
+  "The Roman Empire",
+  "Inside the Colosseum",
+  "Pompeii, the last morning",
+  "Knossos, bull-leaping day",
+  "The Festival of Opet",
+  "Babylon at the Ishtar Gate",
+  "The Petra Treasury",
+  "A caravan across the Sahara",
+  "Balloons over Cappadocia",
+  "Stonehenge at solstice",
+  "Kyoto at lantern dusk",
+  "Serpent over Tenochtitlan",
+  "Through the mist of Zhangjiajie",
+  "New York rooftop parkour",
+  "Wreck the city",
+  "The alpine flight simulator",
+  "Manhattan, the living ant farm",
+  "The London toy train table",
+  "The London brick playset",
+  "The Thames loop toy island",
+  "Rainbow London",
+  "A speedboat through Venice",
+  "Sandboarding at Giza",
+  "The Amazon canopy zipline",
+  "Ride the firework",
+  "Michelangelo, marble awakening",
+  "The golden realm of Klimt",
+  "Inside the Starry Night",
+  "Drifting through Monet’s water lilies",
+  "The Great Wave, at true scale",
+  "Bruegel’s living Tower of Babel",
+  "A Pollock in time",
+  "A garden at one millimeter",
+  "The dragon’s hoard",
+  "Between the walls of the sea",
+  "The complete Niagara Falls",
+  "Calving day at Perito Moreno",
+  "A million monarch wings",
+  "The fireflies’ synchrony",
+  "The golden jellyfish bloom",
+  "The night the reef blooms",
+  "The salmon gauntlet",
+  "The birth of a volcanic island",
+  "The resurrection of a shipwreck",
+  "A living ink-oil world",
+  "The space elevator dawn climb",
+];
+export const prompts = source.prompts.map((p, i) => ({
+  ...p,
+  id: i + 1,
+  number: String(i + 1).padStart(2, "0"),
+  shortTitle: titles[i],
+  section: sections.find((s) => i + 1 >= s.start && i + 1 <= s.end),
+  image: "/previews/" + String(i + 1).padStart(2, "0") + ".webp",
+  searchText: (
+    String(i + 1) +
+    " " +
+    p.title +
+    " " +
+    titles[i] +
+    " " +
+    p.prompt
+  ).toLowerCase(),
+}));
+export const samples = [
+  "Opening view",
+  "Explore the world",
+  "A closer look",
+  "Another atmosphere",
+];
+export function getPromptFromHash() {
+  const m = window.location.hash.match(/^#prompt-(\d{1,2})$/);
+  return m ? prompts.find((p) => p.id === Number(m[1])) || null : null;
+}

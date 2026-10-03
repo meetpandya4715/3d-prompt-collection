@@ -1,0 +1,30 @@
+{
+  "name": "3d-prompt-collection",
+  "version": "1.0.0",
+  "description": "A visual browser for 63 3D world prompts with 252 ImageGen conceptual previews.",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meetpandya4715/3d-prompt-collection.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/meetpandya4715/3d-prompt-collection/issues"
+  },
+  "homepage": "https://github.com/meetpandya4715/3d-prompt-collection#readme",
+  "dependencies": {
+    "lucide-react": "^1.51.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-markdown": "^10.1.0",
+    "vite": "^8.3.2"
+  },
+  "private": true
+}
