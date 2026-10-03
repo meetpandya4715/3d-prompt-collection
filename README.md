@@ -8,6 +8,12 @@ Explore [Worlds — Prompt Atlas](https://worlds-prompt-atlas.meetpandya.chatgpt
 
 ### Run locally
 
+The homepage uses small thumbnails so prompt titles stay easy to scan. Open a
+prompt to browse all four full-size samples, enlarge them, or enter native browser
+fullscreen. The sun/moon control matches the portfolio and shares its saved
+`meet-letter-theme` preference; without a saved choice it follows the system.
+Both palettes cover the gallery, navigation, reader, quick jump, and image viewer.
+
 Use Node.js 22.12 or later:
 
 ```sh
