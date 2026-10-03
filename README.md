@@ -26,6 +26,23 @@ The dashboard reads the original prompt content directly from `prompts.json`. Pr
 
 ## Sections
 
+### Embed under a catalogue path
+
+The default build still runs at `/`. Vite's base sets all script, favicon, and
+preview URLs. To embed this dashboard in a catalogue, build with:
+
+```sh
+VITE_COLLECTIONS_URL=/prompts npm run build -- --base=/prompts/peter-gostev-3d-prompt-collection-dashboard/
+```
+
+In PowerShell, set `$env:VITE_COLLECTIONS_URL='/prompts'` before running the build.
+Leave that variable unset for a standalone deployment. It adds an All collections
+link without changing the dashboard design or its hash-based prompt links
+(`…/#prompt-04`). Serve the build at the same base path, including on refresh.
+Keep the 63 original WebP sheets and `src/image-sizes.json` together: `Preview.jsx`
+uses their native dimensions and an SVG viewBox/clip path to isolate each of the
+four compositions. Do not resize or split the sheets.
+
 | Section | Prompts | Count |
 |---|---:|---:|
 | [Big 3D Worlds](#big-3d-worlds) | 1-30 | 30 |

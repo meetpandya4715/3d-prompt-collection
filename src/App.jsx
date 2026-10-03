@@ -83,6 +83,11 @@ export default function App() {
             <Menu />
           </button>
           <div>
+            {import.meta.env.VITE_COLLECTIONS_URL && (
+              <a className="collections-link" href={import.meta.env.VITE_COLLECTIONS_URL}>
+                ← All collections
+              </a>
+            )}
             <h1>Explore the possibilities.</h1>
             <p>A visual companion to the 3D Prompt Collection.</p>
           </div>

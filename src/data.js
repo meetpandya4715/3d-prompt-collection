@@ -120,7 +120,7 @@ export const prompts = source.prompts.map((p, i) => ({
   number: String(i + 1).padStart(2, "0"),
   shortTitle: titles[i],
   section: sections.find((s) => i + 1 >= s.start && i + 1 <= s.end),
-  image: "/previews/" + String(i + 1).padStart(2, "0") + ".webp",
+  image: import.meta.env.BASE_URL + "previews/" + String(i + 1).padStart(2, "0") + ".webp",
   searchText: (
     String(i + 1) +
     " " +

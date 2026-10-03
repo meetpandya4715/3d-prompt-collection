@@ -1253,3 +1253,16 @@ input {
     margin: 0;
   }
 }
+.collections-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-bottom: 8px;
+  color: inherit;
+  font-size: 14px;
+  text-underline-offset: 4px;
+}
+.collections-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
