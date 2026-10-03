@@ -1346,3 +1346,12 @@ input {
 @media (max-width: 760px) {
   .main-header > .header-actions { grid-column: 2; grid-row: 2; justify-content: space-between; min-width: 0; gap: 8px; }
 }
+
+/* Actual size never enlarges the original sample, even on high-density screens. */
+.viewer-sizing { display: flex; justify-content: center; gap: 4px; padding: 10px 16px 0; }
+.viewer-sizing button { min-height: 40px; padding: 0 16px; border: 1px solid var(--control-border); border-radius: 5px; font: 14px/1.2 var(--sans); color: var(--muted); background: transparent; }
+.viewer-sizing button[aria-pressed="true"] { color: var(--text); background: var(--button-hover); border-color: var(--accent); }
+.viewer-sizing button:hover { color: var(--text); }
+.viewer-stage { align-items: center; justify-content: center; }
+.viewer-stage[data-size="actual"] > .preview { flex: none; max-width: var(--sample-width); max-height: var(--sample-height); }
+@media (max-width: 760px) { .viewer-sizing button { min-height: 44px; } }
